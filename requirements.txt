@@ -1,0 +1,5 @@
+# 本项目只使用 Python 标准库，没有任何第三方依赖。
+# 这个文件的作用是让云平台（Render / Railway 等）识别出这是一个 Python 项目。
+#
+# 如需接入大模型，不需要在这里加包——项目用 urllib 直接调 OpenAI 兼容接口，
+# 只要在 config.json 或环境变量里填 API Key 即可。

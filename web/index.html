@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>耕读知行 · 校园劳动实践智能体</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- 登录闸门：对应"测试账号"这一硬性提交材料 -->
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="gate-logo">耕</div>
+    <h1>耕读知行</h1>
+    <p class="gate-sub">校园劳动实践物联网智能体</p>
+    <p class="gate-hint">请使用测试账号登录体验</p>
+    <form id="loginForm" autocomplete="off">
+      <input id="username" type="text" placeholder="账号" required>
+      <input id="password" type="password" placeholder="密码" required>
+      <button type="submit" id="loginBtn">进入</button>
+      <div class="gate-err" id="gateErr"></div>
+    </form>
+    <div class="gate-foot" id="gateFoot"></div>
+  </div>
+</div>
+
+<!-- 主界面 -->
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">耕</div>
+      <div>
+        <div class="brand-title">耕读知行<span class="brand-tag">劳动教育智能体</span></div>
+        <div class="brand-sub" id="brandSub">校园劳动实践物联网智能体</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="mode-pill" id="modePill">连接中</span>
+      <button class="ghost-btn" id="logoutBtn">退出</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- 左：感知层实时数据 -->
+    <aside class="side">
+      <div class="side-head">
+        <h2>地块实时数据</h2>
+        <span class="live"><i></i>实时</span>
+      </div>
+      <div id="plotList" class="plot-list"></div>
+      <div class="side-note">
+        <div class="side-note-title">感知层</div>
+        土壤湿度 · 空气温湿度 · 光照<br>
+        ESP32 经 MQTT 网关上报<br>
+        <span id="iotNote">演示数据</span>
+      </div>
+    </aside>
+
+    <!-- 右：对话 -->
+    <section class="chat">
+      <div class="messages" id="messages">
+        <div class="msg bot">
+          <div class="avatar">耕</div>
+          <div class="bubble">
+            <p>你好，我是「耕读知行」。我可以帮你：</p>
+            <ul>
+              <li>查地块实时数据，判断要不要浇水、要不要遮阳</li>
+              <li>判断作物叶片发黄、长虫、烂根这类问题的原因</li>
+              <li>查岭南时令该种什么、怎么管</li>
+              <li>按真实监测数据生成劳动实践成长报告</li>
+            </ul>
+            <p class="tip" id="welcomeTip">左边是各地块的实时读数，点一张地块卡片就能直接问我它的状况。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" id="chips">
+        <button data-q="三号地现在湿度多少">三号地现在湿度多少</button>
+        <button data-q="番茄叶子发黄怎么办">番茄叶子发黄怎么办</button>
+        <button data-q="芒种前后在广东能种什么">芒种前后能种什么</button>
+        <button data-q="讲一个劳模故事">讲一个劳模故事</button>
+        <button data-q="帮我生成这学期的劳动实践成长报告">生成成长报告</button>
+      </div>
+
+      <form class="composer" id="chatForm">
+        <textarea id="input" rows="1" placeholder="问我地块数据、养护办法或劳动安排…（Enter 发送，Shift+Enter 换行）"></textarea>
+        <button type="submit" id="sendBtn" title="发送">发送</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

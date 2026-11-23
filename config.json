@@ -1,0 +1,29 @@
+{
+  "llm": {
+    "enabled": false,
+    "provider": "deepseek",
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "api_key": "",
+    "temperature": 0.6,
+    "max_tokens": 900,
+    "timeout": 30,
+    "_说明": "把 enabled 改成 true 并填入 api_key 即可启用大模型。兼容任何 OpenAI 协议的接口：DeepSeek、通义千问(DashScope兼容模式)、智谱、Moonshot 等，只改 base_url 与 model 即可。留空则用内置模板模式，功能完整但语言不如大模型自然。"
+  },
+  "auth": {
+    "username": "demo",
+    "password": "yiban2026",
+    "_说明": "测试账号。附件1【作品简介】和 PPT 第13页要写的就是这组账号，评审据此登录体验。建议提交前改成容易输入但又不像默认值的组合。"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8848,
+    "_说明": "host 设为 0.0.0.0 可让同一局域网内的手机访问，现场用手机扫码演示时用得上。"
+  },
+  "workspace": {
+    "school": "广东培正学院",
+    "team": "耕读知行团队",
+    "contact": "18927434527",
+    "_说明": "替换成本校信息，会显示在界面上。"
+  }
+}
